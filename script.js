@@ -86,7 +86,7 @@ if (buyerRouter) {
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealTargets = document.querySelectorAll(
-  ".proof-strip, main > .section"
+  "main > .section"
 );
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
