@@ -118,3 +118,38 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
 } else {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
 }
+
+const nightCamp = document.querySelector("[data-night-camp]");
+
+if (nightCamp) {
+  let nightTicking = false;
+
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+  const updateNightCamp = () => {
+    const rect = nightCamp.getBoundingClientRect();
+    const start = window.innerHeight * 0.95;
+    const end = window.innerHeight * 0.18;
+    const progress = clamp((start - rect.top) / (start - end), 0, 1);
+    const isNightMode = rect.top < window.innerHeight * 0.38 && rect.bottom > 120;
+
+    nightCamp.style.setProperty("--night-progress", progress.toFixed(3));
+    nightCamp.style.setProperty("--fire-sky-opacity", (0.18 + progress * 0.18).toFixed(3));
+    nightCamp.style.setProperty("--moon-opacity", (0.74 + progress * 0.26).toFixed(3));
+    nightCamp.style.setProperty("--stars-opacity", (0.42 + progress * 0.42).toFixed(3));
+    nightCamp.style.setProperty("--stars-far-opacity", (0.28 + progress * 0.28).toFixed(3));
+    nightCamp.style.setProperty("--camp-rise", `${Math.round((1 - progress) * 22)}px`);
+    document.body.classList.toggle("night-mode", isNightMode);
+    nightTicking = false;
+  };
+
+  const requestNightUpdate = () => {
+    if (nightTicking) return;
+    nightTicking = true;
+    window.requestAnimationFrame(updateNightCamp);
+  };
+
+  updateNightCamp();
+  window.addEventListener("scroll", requestNightUpdate, { passive: true });
+  window.addEventListener("resize", requestNightUpdate);
+}
