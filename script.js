@@ -2,6 +2,11 @@ const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 
 if (navToggle && siteNav) {
+  const closeNavigation = () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    siteNav.classList.remove("is-open");
+  };
+
   navToggle.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -10,8 +15,27 @@ if (navToggle && siteNav) {
 
   siteNav.addEventListener("click", (event) => {
     if (event.target instanceof HTMLAnchorElement) {
-      navToggle.setAttribute("aria-expanded", "false");
-      siteNav.classList.remove("is-open");
+      closeNavigation();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNavigation();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    const target = event.target;
+
+    if (
+      isOpen &&
+      target instanceof Node &&
+      !siteNav.contains(target) &&
+      !navToggle.contains(target)
+    ) {
+      closeNavigation();
     }
   });
 }
@@ -58,4 +82,39 @@ if (buyerRouter) {
       }
     });
   });
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const revealTargets = document.querySelectorAll(
+  ".proof-strip, main > .section"
+);
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.12,
+    }
+  );
+
+  revealTargets.forEach((target) => {
+    const rect = target.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * 0.92) {
+      return;
+    }
+
+    target.classList.add("reveal-on-scroll");
+    revealObserver.observe(target);
+  });
+} else {
+  revealTargets.forEach((target) => target.classList.add("is-visible"));
 }
