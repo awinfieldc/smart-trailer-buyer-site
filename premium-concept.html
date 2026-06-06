@@ -5,176 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A premium concept preview for Smart Trailer Buyer, focused on the trailer of your dreams and the family life it needs to support."
+      content="A luxury magazine style concept preview for Smart Trailer Buyer."
     />
     <meta name="robots" content="noindex" />
-    <title>Premium Concept | Smart Trailer Buyer</title>
+    <title>Magazine Concept | Smart Trailer Buyer</title>
     <link rel="preload" href="assets/hero-trailer-campsite.jpg" as="image" />
     <link rel="preload" href="assets/toolkit-preview.jpg" as="image" />
-    <link rel="stylesheet" href="premium-concept.css?v=concept-20260605" />
+    <link rel="stylesheet" href="premium-concept.css?v=magazine-20260606" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="concept-header" data-concept-header>
-      <a class="concept-brand" href="index.html" aria-label="Smart Trailer Buyer home">
-        <img src="assets/smart-trailer-buyer-mark.png" alt="" width="44" height="44" />
+    <header class="mag-header" data-concept-header>
+      <a class="mag-brand" href="index.html" aria-label="Smart Trailer Buyer home">
+        <img src="assets/smart-trailer-buyer-mark.png" alt="" width="42" height="42" />
         <span>Smart Trailer Buyer</span>
       </a>
-      <nav aria-label="Concept navigation">
-        <a href="#family-fit">Family fit</a>
-        <a href="#dream-standard">Dream standard</a>
-        <a href="free-resources.html">Free resources</a>
+      <nav aria-label="Magazine concept navigation">
+        <a href="#brief">The Brief</a>
+        <a href="#family-fit">Family Fit</a>
+        <a href="#toolkit">Resources</a>
       </nav>
     </header>
 
     <main id="main">
-      <section class="concept-hero" aria-labelledby="concept-title">
+      <section class="mag-hero" aria-labelledby="mag-title">
         <img
-          class="concept-hero-image"
+          class="mag-hero-image"
           src="assets/hero-trailer-campsite.jpg"
-          alt="A travel trailer and tow vehicle at a quiet mountain campsite."
+          alt="A travel trailer and tow vehicle at a calm mountain campsite."
+          data-hero-image
         />
-        <div class="concept-hero-shade" aria-hidden="true"></div>
-        <div class="concept-hero-content">
-          <p class="concept-kicker">First trailer, final answer</p>
-          <h1 id="concept-title">The trailer of your dreams still has to fit your life.</h1>
-          <p>
-            Smart Trailer Buyer helps families choose the camper that feels like freedom, fits the vehicle, and works when everyone is actually inside.
+        <div class="mag-hero-shade" aria-hidden="true"></div>
+
+        <div class="mag-cover">
+          <p class="issue-line">Issue 01 / The first trailer guide</p>
+          <h1 id="mag-title">Smart Trailer Buyer</h1>
+          <p class="cover-deck">
+            A refined way for families to choose the trailer they dream about, then prove it fits the vehicle, the budget, and the life inside.
           </p>
-          <div class="concept-actions">
-            <a class="concept-button concept-button-primary" href="free-resources.html">
-              Start the dream fit check
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </a>
-            <a class="concept-button concept-button-quiet" href="paid-toolkit.html">
-              See the toolkit
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </a>
-          </div>
+          <a class="text-cta text-cta-light" href="free-resources.html">
+            Begin with the free guide
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </a>
         </div>
-        <div class="dream-plaque" aria-label="Premium concept pillars">
-          <span>Vehicle fit</span>
-          <span>Family rhythm</span>
-          <span>Dream standard</span>
-        </div>
+
+        <aside class="cover-note" aria-label="Cover story">
+          <span>Cover Story</span>
+          <p>The trailer of your dreams, edited for real family life.</p>
+        </aside>
       </section>
 
-      <section class="quiet-proof" aria-label="Smart Trailer Buyer promise">
+      <section class="editor-letter" id="brief" aria-labelledby="brief-title">
+        <div>
+          <p class="kicker">Editor's note</p>
+          <h2 id="brief-title">The best camper is not the biggest one on the lot.</h2>
+        </div>
         <p>
-          Not just the trailer you can pull. The trailer you will still love after rain, kids, pets, gear, meals, naps, storage, and the drive home.
+          It is the one that makes the weekend easier, the drive calmer, the rainy afternoon livable, and the first year financially sane. Smart Trailer Buyer starts with desire, then edits the decision until the dream becomes usable.
         </p>
       </section>
 
-      <section class="dream-standard" id="dream-standard" aria-labelledby="dream-title">
-        <div class="dream-copy">
-          <p class="concept-kicker">The new standard</p>
-          <h2 id="dream-title">Start with desire. Prove it with numbers.</h2>
+      <section class="feature-spread" aria-labelledby="feature-title">
+        <figure>
+          <img src="assets/toolkit-preview.jpg" alt="Smart Trailer Buyer guide pages arranged on a table." />
+          <figcaption>Field-tested checklists for the moments that matter before you sign.</figcaption>
+        </figure>
+        <div class="feature-copy">
+          <p class="kicker">The point of view</p>
+          <h2 id="feature-title">Dream first. Verify everything.</h2>
           <p>
-            A dream camper should feel personal, not impulsive. We begin with the life you want outside, then pressure-test towing, payload, floorplan, storage, budget, and delivery-day reality.
+            A luxury decision does not mean ignoring limits. It means knowing exactly which limits matter, which ones are negotiable, and where a trailer will quietly make family travel feel better.
           </p>
+          <dl class="fact-list">
+            <div>
+              <dt>Vehicle</dt>
+              <dd>Payload, loaded tongue weight, GVWR, passengers, cargo, and hitch setup.</dd>
+            </div>
+            <div>
+              <dt>Family</dt>
+              <dd>Sleep, storage, pets, meal flow, bathroom access, and bad-weather space.</dd>
+            </div>
+            <div>
+              <dt>First Year</dt>
+              <dd>Fees, taxes, gear, insurance, storage, fuel, campsites, and maintenance reserve.</dd>
+            </div>
+          </dl>
         </div>
-        <div class="standard-stack" aria-label="Dream fit checks">
+      </section>
+
+      <section class="pull-quote" aria-label="Buyer rule">
+        <p>Do not shrink the dream. Edit it until it fits.</p>
+        <span>Smart Trailer Buyer rule</span>
+      </section>
+
+      <section class="issue-index" aria-labelledby="index-title">
+        <div class="index-intro">
+          <p class="kicker">Inside the issue</p>
+          <h2 id="index-title">Three edits before you tour another floorplan.</h2>
+        </div>
+        <div class="index-list">
           <article>
             <span>01</span>
-            <h3>Can your vehicle carry the dream?</h3>
-            <p>Payload, loaded tongue weight, GVWR, passengers, cargo, and hitch equipment all matter before the brochure does.</p>
+            <h3>The Tow Edit</h3>
+            <p>Use the real numbers before the brochure language starts making decisions for you.</p>
           </article>
           <article>
             <span>02</span>
-            <h3>Can your family live in it?</h3>
-            <p>Bunks, pets, bathroom access, rainy-day space, food prep, sleep routines, and storage decide whether the trip feels calm.</p>
+            <h3>The Family Edit</h3>
+            <p>Choose around the people, pets, food, gear, weather, and sleep routines that will actually show up.</p>
           </article>
           <article>
             <span>03</span>
-            <h3>Can the budget survive year one?</h3>
-            <p>Fees, taxes, gear, hitch setup, fuel, insurance, storage, campsite costs, and maintenance reserve come before the first campfire.</p>
+            <h3>The Money Edit</h3>
+            <p>Make the first-year cost visible before a monthly payment makes the trailer feel smaller than it is.</p>
           </article>
         </div>
       </section>
 
       <section class="family-fit" id="family-fit" aria-labelledby="family-title">
-        <div class="family-visual" aria-hidden="true">
-          <img src="assets/toolkit-preview.jpg" alt="" />
-          <span class="map-line"></span>
-        </div>
         <div class="family-copy">
-          <p class="concept-kicker">Family fit</p>
-          <h2 id="family-title">The best floorplan is the one that protects the trip.</h2>
+          <p class="kicker">Family fit</p>
+          <h2 id="family-title">A floorplan should protect the trip, not just photograph well.</h2>
           <p>
-            Choose a camping style below and see what the buyer path should prioritize first.
+            Pick the way your family will actually camp. The brief changes because the right trailer changes with it.
           </p>
-          <div class="lifestyle-switcher" data-lifestyle-switcher>
-            <div class="lifestyle-tabs" role="group" aria-label="Choose a camping style">
-              <button class="is-active" type="button" data-lifestyle-choice data-title="Weekend family basecamp" data-copy="Prioritize easy towing, sleeping zones, bathroom access on travel days, quick setup, outdoor cooking, and enough storage for repeat weekend routines." aria-pressed="true">
-                Weekends
-              </button>
-              <button type="button" data-lifestyle-choice data-title="Long-road comfort" data-copy="Prioritize cargo capacity, seating comfort, tank sizes, fridge access, bed quality, weather protection, and whether everyone has a quiet place to reset." aria-pressed="false">
-                Road trips
-              </button>
-              <button type="button" data-lifestyle-choice data-title="Off-grid confidence" data-copy="Prioritize solar readiness, battery capacity, ground clearance, water storage, insulation, tire quality, payload margin, and simple systems you can manage." aria-pressed="false">
-                Off-grid
-              </button>
-            </div>
-            <div class="lifestyle-result" aria-live="polite">
-              <h3 data-lifestyle-title>Weekend family basecamp</h3>
-              <p data-lifestyle-copy>
-                Prioritize easy towing, sleeping zones, bathroom access on travel days, quick setup, outdoor cooking, and enough storage for repeat weekend routines.
-              </p>
-            </div>
+        </div>
+
+        <div class="brief-switcher" data-brief-switcher>
+          <div class="brief-tabs" role="group" aria-label="Choose a camping brief">
+            <button
+              class="is-active"
+              type="button"
+              data-brief-choice
+              data-title="The Weekend House"
+              data-copy="Favor easy towing, fast setup, flexible sleeping zones, outdoor cooking, bathroom access on the road, and storage that makes repeat trips simple."
+              aria-pressed="true"
+            >
+              Weekends
+            </button>
+            <button
+              type="button"
+              data-brief-choice
+              data-title="The Long Road Suite"
+              data-copy="Favor seating comfort, cargo capacity, fridge access, tank sizes, bed quality, weather protection, and a quiet reset spot for everyone."
+              aria-pressed="false"
+            >
+              Road Trips
+            </button>
+            <button
+              type="button"
+              data-brief-choice
+              data-title="The Off-Grid Cabin"
+              data-copy="Favor solar readiness, battery capacity, ground clearance, water storage, insulation, tire quality, payload margin, and simple systems."
+              aria-pressed="false"
+            >
+              Off-Grid
+            </button>
+          </div>
+          <div class="brief-result" aria-live="polite">
+            <span>Selected brief</span>
+            <h3 data-brief-title>The Weekend House</h3>
+            <p data-brief-copy>
+              Favor easy towing, fast setup, flexible sleeping zones, outdoor cooking, bathroom access on the road, and storage that makes repeat trips simple.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="only-option" aria-labelledby="option-title">
-        <div class="option-copy">
-          <p class="concept-kicker">Why this exists</p>
-          <h2 id="option-title">A premium trailer decision should feel guided, not guessed.</h2>
-          <p>
-            The right site can become the trusted first stop: less dealer noise, more confidence, better questions, clearer tradeoffs, and a shortlist that respects both the dream and the driveway.
-          </p>
-        </div>
-        <div class="option-ledger" aria-label="Premium concept comparison">
-          <div>
-            <span>Old way</span>
-            <p>Tour campers first, justify the numbers later.</p>
-          </div>
-          <div>
-            <span>Smart Trailer Buyer</span>
-            <p>Define the life, verify the fit, then shop like the decision matters.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="concept-final" aria-labelledby="final-title">
+      <section class="buying-brief" id="toolkit" aria-labelledby="toolkit-title">
         <div>
-          <p class="concept-kicker">Preview only</p>
-          <h2 id="final-title">This is the premium direction: quieter, richer, more aspirational.</h2>
-          <p>
-            It keeps the practical buyer promise, but frames the outcome around family freedom and a trailer that feels chosen, not settled for.
-          </p>
+          <p class="kicker">The buyer path</p>
+          <h2 id="toolkit-title">A quieter way to shop with confidence.</h2>
         </div>
-        <a class="concept-button concept-button-primary" href="free-resources.html">
-          Open the buyer path
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M5 12h14m-6-6 6 6-6 6" />
-          </svg>
-        </a>
+        <div class="brief-links">
+          <a href="free-resources.html">
+            <span>Free Library</span>
+            <strong>Start with the checklists</strong>
+            <em>Towing, budget, floorplan, dealer questions, delivery day, and starter gear.</em>
+          </a>
+          <a href="paid-toolkit.html">
+            <span>Paid Toolkit</span>
+            <strong>Go deeper before you buy</strong>
+            <em>A more guided path for narrowing the right trailers before the weekend showroom loop.</em>
+          </a>
+        </div>
       </section>
     </main>
 
-    <footer class="concept-footer">
-      <a class="concept-brand" href="index.html">
+    <footer class="mag-footer">
+      <a class="mag-brand" href="index.html">
         <img src="assets/smart-trailer-buyer-mark.png" alt="" width="42" height="42" />
         <span>Smart Trailer Buyer</span>
       </a>
-      <p>Concept preview. The live site remains unchanged unless this direction is approved.</p>
+      <p>Magazine concept preview. The live site remains unchanged unless this direction is approved.</p>
     </footer>
 
-    <script src="premium-concept.js?v=concept-20260605"></script>
+    <script src="premium-concept.js?v=magazine-20260606"></script>
   </body>
 </html>

@@ -1,14 +1,22 @@
-const conceptHeader = document.querySelector("[data-concept-header]");
 const revealConceptTargets = document.querySelectorAll(
-  ".quiet-proof, .dream-standard, .family-fit, .only-option, .concept-final"
+  ".editor-letter, .feature-spread, .pull-quote, .issue-index, .family-fit, .buying-brief"
 );
+const heroImage = document.querySelector("[data-hero-image]");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const updateHeaderState = () => {
-  document.body.classList.toggle("has-scrolled", window.scrollY > 24);
+const updatePageState = () => {
+  const y = window.scrollY;
+  document.body.classList.toggle("has-scrolled", y > 24);
+
+  if (heroImage && !prefersReducedMotion) {
+    const lift = Math.min(y, 520) * 0.035;
+    const scale = 1.04 + Math.min(y, 520) * 0.00008;
+    heroImage.style.transform = `scale(${scale}) translateY(${lift}px)`;
+  }
 };
 
-updateHeaderState();
-window.addEventListener("scroll", updateHeaderState, { passive: true });
+updatePageState();
+window.addEventListener("scroll", updatePageState, { passive: true });
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -21,13 +29,13 @@ if ("IntersectionObserver" in window) {
       });
     },
     {
-      rootMargin: "0px 0px -10% 0px",
-      threshold: 0.12,
+      rootMargin: "0px 0px -12% 0px",
+      threshold: 0.1,
     }
   );
 
   revealConceptTargets.forEach((target) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion) {
       target.classList.add("is-visible");
       return;
     }
@@ -37,12 +45,12 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-const switcher = document.querySelector("[data-lifestyle-switcher]");
+const briefSwitcher = document.querySelector("[data-brief-switcher]");
 
-if (switcher) {
-  const choices = switcher.querySelectorAll("[data-lifestyle-choice]");
-  const title = switcher.querySelector("[data-lifestyle-title]");
-  const copy = switcher.querySelector("[data-lifestyle-copy]");
+if (briefSwitcher) {
+  const choices = briefSwitcher.querySelectorAll("[data-brief-choice]");
+  const title = briefSwitcher.querySelector("[data-brief-title]");
+  const copy = briefSwitcher.querySelector("[data-brief-copy]");
 
   choices.forEach((choice) => {
     choice.addEventListener("click", () => {
