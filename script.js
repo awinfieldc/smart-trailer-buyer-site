@@ -1,5 +1,85 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
+const formUrlHost = "docs.google.com";
+
+const trackEvent = (name, properties = {}) => {
+  const cleanProperties = Object.fromEntries(
+    Object.entries(properties).filter(([, value]) => value !== undefined && value !== "")
+  );
+
+  if (typeof window.va === "function") {
+    window.va("event", name, cleanProperties);
+  }
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, cleanProperties);
+  }
+
+  if (typeof window.plausible === "function") {
+    window.plausible(name, { props: cleanProperties });
+  }
+};
+
+const appendDynamicUtmSource = () => {
+  const currentParams = new URLSearchParams(window.location.search);
+  const source = currentParams.get("utm_source") || currentParams.get("source");
+
+  if (!source) return;
+
+  document.querySelectorAll("[data-dynamic-utm]").forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) return;
+
+    const nextUrl = new URL(link.href);
+    nextUrl.searchParams.set("utm_source", source);
+    nextUrl.searchParams.set("utm_medium", link.dataset.utmMedium || "social");
+    nextUrl.searchParams.set("utm_campaign", link.dataset.utmCampaign || "checklist");
+    link.href = nextUrl.toString();
+  });
+};
+
+appendDynamicUtmSource();
+
+document.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (!(target instanceof Element)) return;
+
+  const link = target.closest("a");
+
+  if (!(link instanceof HTMLAnchorElement)) return;
+
+  const href = link.href;
+  const eventName = link.dataset.track || (
+    href.includes(formUrlHost)
+      ? "free_download_click"
+      : href.includes("youtube.com") || href.includes("tiktok.com") || href.includes("instagram.com")
+        ? "social_click"
+        : href.endsWith(".pdf")
+          ? "pdf_download_click"
+          : ""
+  );
+
+  if (!eventName) return;
+
+  let destination = "";
+  let utmSource = "";
+
+  try {
+    const nextUrl = new URL(href);
+    destination = nextUrl.hostname;
+    utmSource = nextUrl.searchParams.get("utm_source") || "";
+  } catch {
+    destination = href;
+  }
+
+  trackEvent(eventName, {
+    label: link.textContent.trim().replace(/\s+/g, " ").slice(0, 80),
+    location: link.dataset.location || "",
+    destination,
+    utm_source: utmSource,
+    page: window.location.pathname,
+  });
+});
 
 if (navToggle && siteNav) {
   const closeNavigation = () => {
