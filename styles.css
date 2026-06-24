@@ -530,7 +530,9 @@ li {
 .offer-summary h2,
 .included-list h2,
 .checkout-hold h2,
-.cta-strip h2 {
+.cta-strip h2,
+.ladder-grid h3,
+.legal-section h2 {
   margin: 0;
   color: var(--ink);
   font-size: clamp(2rem, 4.2vw, 3.55rem);
@@ -543,7 +545,9 @@ li {
 .scenic-band p,
 .offer-summary p,
 .checkout-hold p,
-.cta-strip p {
+.cta-strip p,
+.ladder-grid p,
+.legal-section p {
   margin: 0.85rem 0 0;
   color: var(--muted);
   font-size: 1.08rem;
@@ -1522,6 +1526,143 @@ body.night-mode .nav-cta {
   font-size: clamp(1.7rem, 3.2vw, 2.8rem);
 }
 
+.ladder-section {
+  border-top: 1px solid var(--line);
+}
+
+.ladder-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ladder-grid article {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.ladder-grid span,
+.link-card span {
+  color: var(--amber-deep);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.ladder-grid h3 {
+  margin-top: 0.7rem;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.ladder-grid p {
+  font-size: 0.98rem;
+}
+
+.ladder-grid a,
+.ladder-grid strong {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  margin-top: auto;
+  color: var(--teal-deep);
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.ladder-grid a:hover,
+.ladder-grid a:focus-visible {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 0.24rem;
+}
+
+.links-hero {
+  min-height: 40svh;
+}
+
+.link-hub {
+  padding-top: 0;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.link-card {
+  display: flex;
+  grid-column: span 4;
+  min-height: 190px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.primary-link-card {
+  grid-column: span 8;
+  background:
+    linear-gradient(135deg, rgba(238, 248, 246, 0.9), rgba(255, 255, 255, 0.94)),
+    var(--paper);
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  border-color: rgba(15, 76, 85, 0.55);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.link-card strong {
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.12;
+}
+
+.link-card em {
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-style: normal;
+  line-height: 1.52;
+}
+
+.legal-section {
+  display: grid;
+  gap: 1.2rem;
+  padding-top: 0;
+}
+
+.legal-section article {
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+
+.legal-section h2 {
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+}
+
+.legal-section p {
+  max-width: 860px;
+  font-size: 1rem;
+}
+
 :focus-visible {
   outline: 3px solid rgba(244, 182, 63, 0.9);
   outline-offset: 3px;
@@ -1621,8 +1762,14 @@ body.night-mode .nav-cta {
   .page-hero,
   .paid-hero,
   .offer-section,
-  .checkout-hold {
+  .checkout-hold,
+  .ladder-grid {
     grid-template-columns: 1fr;
+  }
+
+  .link-card,
+  .primary-link-card {
+    grid-column: span 6;
   }
 
   .page-hero,
@@ -1702,8 +1849,14 @@ body.night-mode .nav-cta {
 
   .resource-grid,
   .included-list ul,
-  .price-stack {
+  .price-stack,
+  .link-grid {
     grid-template-columns: 1fr;
+  }
+
+  .link-card,
+  .primary-link-card {
+    grid-column: auto;
   }
 
   .folder-row {
